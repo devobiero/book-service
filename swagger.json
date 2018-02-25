@@ -142,12 +142,10 @@
         ],
         "properties": {
           "_id": {
-            "type": "string",
-            "uniqueItems": true
+            "type": "string"
           },
           "title": {
-            "type": "string",
-            "uniqueItems": true
+            "type": "string"
           },
           "genre": {
             "type": "string"
