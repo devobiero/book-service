@@ -1,0 +1,165 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Book Service API",
+      "description": "book-service backend api",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8000",
+    "basePath": "/api/",
+    "tags": [
+      {
+        "name": "Books",
+        "description": "API for books in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/books": {
+        "post": {
+          "tags": [
+            "Books"
+          ],
+          "description": "Create new book in system",
+          "parameters": [
+            {
+              "name": "book",
+              "in": "body",
+              "description": "book that we want to create",
+              "schema": {
+                "$ref": "#/definitions/book"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New book is created",
+              "schema": {
+                "$ref": "#/definitions/book"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Books"
+          ],
+          "summary": "Get all Books in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Books"
+              }
+            }
+          }
+        }
+      },
+      "/books/{bookId}": {
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "description": "ID of book that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Books"
+          ],
+          "summary": "Get book with given ID",
+          "responses": {
+            "200": {
+              "description": "book is found",
+              "schema": {
+                "$ref": "#/definitions/book"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete book with given ID",
+          "tags": [
+            "Books"
+          ],
+          "responses": {
+            "200": {
+              "description": "book is deleted",
+              "schema": {
+                "$ref": "#/definitions/book"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update book with give ID",
+          "tags": [
+            "Books"
+          ],
+          "parameters": [
+            {
+              "name": "book",
+              "in": "body",
+              "description": "book with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/book"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "book is updated",
+              "schema": {
+                "$ref": "#/definitions/book"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "book": {
+        "required": [
+          "title",
+          "_id"
+        ],
+        "properties": {
+          "_id": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "title": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "genre": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          }
+        }
+      },
+      "Books": {
+        "type": "array",
+        "$ref": "#/definitions/book"
+      }
+    }
+  }
