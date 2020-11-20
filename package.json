@@ -17,7 +17,7 @@
     "mongoose": "^5.0.7",
     "should": "^13.2.1",
     "sinon": "^4.4.1",
-    "swagger-ui-express": "^2.0.15"
+    "swagger-ui-express": "^4.1.5"
   },
   "devDependencies": {
     "gulp-env": "^0.4.0",
