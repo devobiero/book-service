@@ -16,7 +16,7 @@
     "gulp-nodemon": "^2.2.1",
     "mongoose": "^5.0.7",
     "should": "^13.2.1",
-    "sinon": "^4.4.1",
+    "sinon": "^11.1.1",
     "swagger-ui-express": "^2.0.15"
   },
   "devDependencies": {
